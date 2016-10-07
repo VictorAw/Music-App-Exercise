@@ -1,0 +1,14 @@
+<label for="new_album_page_title">
+	<h2>New Album Entry</h2>
+</label>
+
+<%= render "shared/form", 
+		action: albums_url, 
+		method: "post", 
+		our_class: "album",
+		parent_class: "band",
+		parent_id: "band_id",
+		our: @album,
+		parents: Band.all,
+		our_types: Album::RECORDING_TYPES,
+		type_string: "recording" %>

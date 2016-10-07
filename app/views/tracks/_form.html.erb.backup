@@ -1,0 +1,29 @@
+<form action=<%= action %> method=<%= method %>>
+	<label for="track_album">Album</label>
+	<br>
+	<select name="track[album_id]">
+		<option disabled selected></option>
+
+		<% albums.each do |album| %>
+			<option value=<%= album.id %>
+							<%= "selected" if album.id == self.album_id %>>
+					<%= h(album.name) %>
+			</option>
+		<% end %>
+	</select>
+
+	<br>
+	<br>
+
+	<label for="track_rec_type">Recording Types</label>
+	<br>
+	<% Track::TRACK_TYPES.each do |track_type| %>
+		<label for=<%= "track_" + track_type %>><%= track_type.capitalize %></label>
+		<input type="radio"
+					 id=<%= "track_" + track_type %>
+					 name="track[track_type]"
+					 value=<%= track_type %>
+					 <%= "checked" if self.track_type == track_type %>>
+		<br>
+	<% end %>
+</form>

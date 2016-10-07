@@ -1,0 +1,14 @@
+<label for="new_track_page_title">
+	<h2>New Track Entry</h2>
+</label>
+
+<%= render "shared/form", 
+		action: tracks_url, 
+		method: "post", 
+		our_class: "track",
+		parent_class: "album",
+		parent_id: "album_id",
+		our: @track,
+		parents: Album.all,
+		our_types: Track::TRACK_TYPES,
+		type_string: "track" %>

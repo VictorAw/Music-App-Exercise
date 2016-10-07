@@ -1,0 +1,14 @@
+<label for="edit_track_page_title">
+	<h2>Edit Track Entry</h2>
+</label>
+
+<%= render "shared/form", 
+		action: track_url(@track.id), 
+		method: "patch", 
+		our_class: "track",
+		parent_class: "album",
+		parent_id: "album_id",
+		our: @track,
+		parents: Album.all,
+		our_types: Track::TRACK_TYPES,
+		type_string: "track" %>

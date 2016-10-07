@@ -1,0 +1,11 @@
+<label for="show_band_page_title">
+	<h2><%= @band.name %></h2>
+</label>
+
+<%= render "shared/show",
+	edit_path: edit_band_path(@band.id),
+	delete_path: band_url(@band.id),
+	parent_path: bands_path,
+	parent_name: "All bands",
+	children: @band.albums,
+	child_path: "#{albums_path}/" %>

@@ -1,0 +1,41 @@
+<form action=<%= action %> method="post">
+	<%= auth_token %>
+
+	<input type="hidden" name="_method" value=<%= method %>>
+	<label for=<%= our_class + "_name" %>>Name</label>
+	<br>
+	<input type="text" id=<%= our_class + "_name" %> name=<%=our_class + "[name]" %> value=<%= our.name %>>
+	<br>
+	<br>
+
+	<label for=<%= our_class + "_" + parent_class %>><%= parent_class.capitalize %></label>
+	<br>
+	<select name=<%= our_class + "[" + parent_id + "]" %>>
+		<option disabled selected></option>
+
+		<% parents.each do |parent| %>
+			<option value=<%= parent.id %>
+			<%= "selected" if parent.id == our.send(parent_id)  %>>
+					<%= h(parent.name) %>
+			</option>
+		<% end %>
+	</select>
+
+	<br>
+	<br>
+
+	<label for=<%= our_class + "_type" %>><%= type_string.capitalize %></label>
+	<br>
+	<% our_types.each do |our_type| %>
+		<label for=<%= our_class + our_type %>><%= our_type.capitalize %></label>
+		<input type="radio"
+					 id=<%= our_class + our_type %>
+					 name=<%= our_class + "[" + type_string + "_type]" %>
+					 value=<%= our_type %>
+					 <%= "checked" if our && our.send(type_string + "_type") == our_type %>>
+		<br>
+	<% end %>
+
+	<br>
+	<button type="submit">Submit</button>
+</form>

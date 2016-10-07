@@ -1,0 +1,9 @@
+<a href=<%= edit_path %>>Edit</a><br>
+
+<%= link_to "Delete", delete_path, method: "delete" %>
+
+<a href=<%= parent_path %>><%= parent_name %></a><br>
+
+<% children.each do |child| %>
+	<a href=<%= child_path + child.id.to_s %>><%= child.name %></a><br>
+<% end %>

@@ -1,0 +1,29 @@
+<form action=<%= action %> method=<%= method %>>
+	<label for="album_band">Band</label>
+	<br>
+	<select name="album[band_id]">
+		<option disabled selected></option>
+
+		<% bands.each do |band| %>
+			<option value=<%= band.id %>
+							<%= "selected" if band.id == our.band_id %>>
+					<%= h(band.name) %>
+			</option>
+		<% end %>
+	</select>
+
+	<br>
+	<br>
+
+	<label for="album_rec_type">Recording Types</label>
+	<br>
+	<% Album::RECORDING_TYPES.each do |rec_type| %>
+		<label for=<%= "album_rec_" + rec_type %>><%= rec_type.capitalize %></label>
+		<input type="radio"
+					 id=<%= "album_rec_" + rec_type %>
+					 name="album[recording_type]"
+					 value=<%= rec_type %>
+					 <%= "checked" if our.recording_type == rec_type %>>
+		<br>
+	<% end %>
+</form>

@@ -1,0 +1,10 @@
+<label for="show_track_page_title">
+	<h2><%= @track.name %></h2>
+</label>
+
+<%= render "shared/show",
+		edit_path: edit_track_path(@track.id),
+		delete_path: track_path(@track.id),
+		parent_path: album_path(@track.album.id),
+		parent_name: @track.album.name,
+		children: [] %>

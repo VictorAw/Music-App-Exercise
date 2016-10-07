@@ -1,0 +1,11 @@
+<label for="creating_account">
+	<h2>Login</h2>
+</label>
+
+<%= render "shared/credentials", action: session_url,
+																 username_name: "session[username]",
+																 pw_name: "session[password]",
+																 creating_account: false %>
+
+
+

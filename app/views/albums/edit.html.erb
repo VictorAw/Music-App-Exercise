@@ -1,0 +1,14 @@
+<label for="edit_album_page_title">
+	<h2>Edit Album Information</h2>
+</label>
+
+<%= render "shared/form", 
+		action: album_url(@album.id),
+		method: "patch",
+		our_class: "album",
+		parent_class: "band",
+		parent_id: "band_id",
+		our: @album,
+		parents: Band.all,
+		our_types: Album::RECORDING_TYPES,
+		type_string: "recording" %>

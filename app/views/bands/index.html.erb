@@ -1,0 +1,7 @@
+<label for="band_index_title">
+	<h2>Bands</h2>
+</label>
+
+<% @bands.each do |band| %>
+	<a href=<%= band_url(band) %>><%= h(band.name) %></a><br>
+<% end %>
